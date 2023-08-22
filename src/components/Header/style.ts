@@ -5,7 +5,12 @@ export const HeaderContainer = styled.header`
   height: 6.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `
 
 export const UlHeader = styled.ul`

@@ -41,6 +41,6 @@ export const defaultTheme = {
   },
   fonts: {
     regular: '"Roboto", sans-serif',
-    title: '"Baloo2"',
+    title: '"Baloo 2", cursive',
   },
 }

@@ -7,25 +7,25 @@ import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 export function Header() {
   return (
     <HeaderContainer>
-      <div>
+      <div className="container">
         <NavLink to="/">
           <img src={coffeeDeliveryLogo} alt="" />
         </NavLink>
-      </div>
 
-      <nav>
-        <UlHeader>
-          <HeaderLi variant="purple">
-            <MapPin weight="fill" size={22} />
-            <span>Porto Alegre, RS</span>
-          </HeaderLi>
-          <NavLink to="/checkout">
-            <HeaderLi variant="yellow">
-              <ShoppingCart weight="fill" size={22} />
+        <nav>
+          <UlHeader>
+            <HeaderLi variant="purple">
+              <MapPin weight="fill" size={22} />
+              <span>Porto Alegre, RS</span>
             </HeaderLi>
-          </NavLink>
-        </UlHeader>
-      </nav>
+            <NavLink to="/checkout">
+              <HeaderLi variant="yellow">
+                <ShoppingCart weight="fill" size={22} />
+              </HeaderLi>
+            </NavLink>
+          </UlHeader>
+        </nav>
+      </div>
     </HeaderContainer>
   )
 }

@@ -17,15 +17,15 @@ a{
 }
 
 body{
-  background: ${(props) => props.theme.background};
-  color: ${(props) => props.theme.text};
+  background: ${({ theme }) => theme.color.background};
+  color: ${({ theme }) => theme.color['base-text']};
   -webkit-font-smoothing:antialiased;
 }
 
 body, input, button, textarea{
-  font-family: ${(props) => props.theme.fonts.regular};
+  font-family: ${({ theme }) => theme.fonts.regular};
   font-weight:400;
-  font-size:${(props) => props.theme.fontSizes['text-m']};
+  font-size:${({ theme }) => theme.fontSizes['text-m']};
 }
 
 `
