@@ -9,6 +9,7 @@ import {
   FooterCard,
   Tags,
 } from './style'
+import { formatMoney } from '../../../../utils/formatMoney'
 
 export interface Coffee {
   id: number
@@ -24,6 +25,8 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const formattedPrice = formatMoney(coffee.price)
+
   return (
     <CoffeeCardContainer>
       <img src={`/coffees/${coffee.photo}`} alt="" />
@@ -41,7 +44,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         <div>
           <RegularText size="s">R$</RegularText>
           <TitleText size="m" color="text" as="strong">
-            {coffee.price}
+            {formattedPrice}
           </TitleText>
         </div>
 
