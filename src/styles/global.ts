@@ -28,4 +28,14 @@ body, input, button, textarea{
   font-size:${({ theme }) => theme.fontSizes['text-m']};
 }
 
+input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
 `

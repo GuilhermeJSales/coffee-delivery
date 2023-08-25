@@ -1,13 +1,13 @@
 import { styled } from 'styled-components'
 
 export interface TitleTextProps {
-  color?: 'title' | 'text'
+  color?: 'title' | 'subtitle' | 'text'
   size?: 'xl' | 'l' | 'm' | 's' | 'xs'
   weight?: string | number
 }
 
 export interface RegularTextProps {
-  color?: 'subtitle' | 'text'
+  color?: 'subtitle' | 'text' | 'label'
   size?: 'l' | 'm' | 's' | 'xs'
   weight?: string | number
 }
