@@ -15,6 +15,10 @@ export const CoffeeCardContainer = styled.div`
   align-items: center;
   text-align: center;
 
+  @media only screen and (max-width: 39.75rem) {
+    width: 18.75rem;
+  }
+
   img {
     margin-top: -1.125rem;
     width: 7.5rem;

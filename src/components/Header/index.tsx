@@ -14,12 +14,12 @@ export function Header() {
 
         <nav>
           <UlHeader>
-            <HeaderLi variant="purple">
+            <HeaderLi $variant="purple">
               <MapPin weight="fill" size={22} />
               <span>Porto Alegre, RS</span>
             </HeaderLi>
             <NavLink to="/checkout">
-              <HeaderLi variant="yellow">
+              <HeaderLi $variant="yellow">
                 <ShoppingCart weight="fill" size={22} />
               </HeaderLi>
             </NavLink>

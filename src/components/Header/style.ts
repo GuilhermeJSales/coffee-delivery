@@ -19,7 +19,7 @@ export const UlHeader = styled.ul`
   gap: 0.75rem;
 `
 interface HeaderButtonProps {
-  variant: 'purple' | 'yellow'
+  $variant: 'purple' | 'yellow'
 }
 
 export const HeaderLi = styled.li<HeaderButtonProps>`
@@ -32,15 +32,15 @@ export const HeaderLi = styled.li<HeaderButtonProps>`
   border-radius: 6px;
   font-size: ${({ theme }) => theme.fontSizes['text-s']};
 
-  ${({ variant, theme }) => css`
-    background: ${theme.color[`${variant}-light`]};
-    color: ${theme.color[`${variant}-dark`]};
+  ${({ $variant, theme }) => css`
+    background: ${theme.color[`${$variant}-light`]};
+    color: ${theme.color[`${$variant}-dark`]};
   `}
-  ${({ variant, theme }) =>
-    variant === 'purple' &&
+  ${({ $variant, theme }) =>
+    $variant === 'purple' &&
     css`
       svg {
-        color: ${theme.color[`theme-${variant}`]};
+        color: ${theme.color[`theme-${$variant}`]};
       }
     `};
 `
