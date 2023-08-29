@@ -5,8 +5,10 @@ import { CardContainer, OurCoffeesContainer } from './style'
 
 export function OurCoffees() {
   return (
-    <OurCoffeesContainer className="container" color="subtitle">
-      <TitleText size={'l'}>Nossos Cafés</TitleText>
+    <OurCoffeesContainer className="container">
+      <TitleText size={'l'} color="subtitle">
+        Nossos Cafés
+      </TitleText>
       <CardContainer>
         {coffees.map((coffee) => (
           <CoffeeCard key={coffee.id} coffee={coffee} />

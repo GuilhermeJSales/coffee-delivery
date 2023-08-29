@@ -16,7 +16,7 @@ export function Header() {
           <UlHeader>
             <HeaderLi $variant="purple">
               <MapPin weight="fill" size={22} />
-              <span>Porto Alegre, RS</span>
+              <span>São Paulo, SP</span>
             </HeaderLi>
             <NavLink to="/checkout">
               <HeaderLi $variant="yellow">
