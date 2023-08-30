@@ -1,45 +1,39 @@
 import { styled } from 'styled-components'
 
-export const QuantityInputContainer = styled.div`
-  flex: 1;
-  background: ${({ theme }) => theme.color['base-button']};
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 6px;
-  padding: 0.5rem;
-
-  input {
-    background: none;
-    color: ${({ theme }) => theme.color['base-title']};
-    font-size: ${({ theme }) => theme.fontSizes['text-m']};
-    border: none;
-    text-align: center;
-    width: 100%;
-
-    &::focus {
-      outline: none;
-    }
-  }
+export const InputContainer = styled.div`
+  position: relative;
 `
 
-export const IconWrapper = styled.button.attrs({
-  type: 'button',
-})`
-  width: 0.875rem;
-  height: 0.875rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: ${({ theme }) => theme.color['theme-purple']};
-  transition: 0.4s;
+export const Optional = styled.span`
+  color: ${({ theme }) => theme.color['base-label']};
+  font-size: ${({ theme }) => theme.fontSizes['text-s']};
+  font-style: italic;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+`
 
-  &:disabled {
-    opacity: 0.4;
+export const InputItem = styled.input`
+  font-size: ${({ theme }) => theme.fontSizes['text-s']};
+  font-weight: 400;
+  line-height: 130%;
+  background: ${({ theme }) => theme.color['base-input']};
+  color: ${({ theme }) => theme.color['base-text']};
+  border: 1px solid ${({ theme }) => theme.color['base-button']};
+  border-radius: 4px;
+  padding: 0.75rem;
+  width: 100%;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.color['base-label']};
   }
 
-  &:not(:disabled):hover {
-    color: ${({ theme }) => theme.color['purple-dark']};
+  &:focus {
+    outline: 1px solid ${({ theme }) => theme.color['yellow-dark']};
+    border: 1px solid ${({ theme }) => theme.color['yellow-dark']};
+  }
+
+  &:focus::placeholder {
+    color: transparent;
   }
 `

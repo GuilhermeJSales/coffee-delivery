@@ -1,16 +1,15 @@
-import { Minus, Plus } from '@phosphor-icons/react'
-import { IconWrapper, QuantityInputContainer } from './style'
+import { InputHTMLAttributes } from 'react'
+import { InputContainer, InputItem, Optional } from './style'
 
-export function Input() {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  optional?: string
+}
+
+export function Input({ optional, className, ...props }: InputProps) {
   return (
-    <QuantityInputContainer>
-      <IconWrapper>
-        <Minus size={14} />
-      </IconWrapper>
-      <input type="number" readOnly value={1} />
-      <IconWrapper>
-        <Plus size={14} />
-      </IconWrapper>
-    </QuantityInputContainer>
+    <InputContainer className={className}>
+      <InputItem {...props} />
+      {optional && <Optional>{optional}</Optional>}
+    </InputContainer>
   )
 }
