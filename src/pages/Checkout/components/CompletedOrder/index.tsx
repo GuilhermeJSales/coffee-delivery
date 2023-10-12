@@ -6,10 +6,12 @@ import {
   CheckoutForm,
   FormContainer,
   GridPaymentButton,
+  ContainerSelectedCoffees,
 } from './style'
 import { useTheme } from 'styled-components'
 import { ButtonPayment } from '../ButtonPayment'
 import { OrderAddressForm } from '../OrderAddressForm'
+import { SelectedCoffees } from '../SelectedCoffees'
 
 export function CompletedOrder() {
   const { color } = useTheme()
@@ -43,6 +45,13 @@ export function CompletedOrder() {
           <ButtonPayment />
         </GridPaymentButton>
       </ContainerOrderForm>
+
+      <TitleText size="xs" color="subtitle">
+        Cafés selecionados
+      </TitleText>
+      <ContainerSelectedCoffees>
+        <SelectedCoffees />
+      </ContainerSelectedCoffees>
     </CheckoutForm>
   )
 }

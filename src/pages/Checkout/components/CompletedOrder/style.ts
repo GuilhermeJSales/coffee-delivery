@@ -12,6 +12,10 @@ export const ContainerOrderForm = styled.div`
   margin-bottom: 0.75rem;
 `
 
+export const ContainerSelectedCoffees = styled(ContainerOrderForm)`
+  border-radius: 6px 44px 6px 44px;
+`
+
 export const FormContainer = styled.div`
   margin-top: 2rem;
   display: grid;

@@ -49,7 +49,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         </div>
 
         <AddCartWrapper>
-          <QuantityInput />
+          <QuantityInput $size={'medium'} />
           <button>
             <ShoppingCart size={20} weight="fill" />
           </button>
