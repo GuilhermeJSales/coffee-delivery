@@ -4,6 +4,7 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+  margin-bottom: 2rem;
 `
 interface IconContainerProps {
   $iconColor: string

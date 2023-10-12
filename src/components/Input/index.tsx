@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react'
 import { InputContainer, InputItem, Optional } from './style'
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   optional?: string
 }
 

@@ -1,14 +1,20 @@
-import { MapPinLine } from '@phosphor-icons/react'
+import { CurrencyDollar, MapPinLine } from '@phosphor-icons/react'
 import { TitleText } from '../../../../styles/typography'
 import { IconFormTitle } from '../IconFormTitle'
-import { ContainerOrderForm, CheckoutContainer, FormContainer } from './style'
+import {
+  ContainerOrderForm,
+  CheckoutForm,
+  FormContainer,
+  GridPaymentButton,
+} from './style'
 import { useTheme } from 'styled-components'
-import { Input } from '../../../../components/Input'
+import { ButtonPayment } from '../ButtonPayment'
+import { OrderAddressForm } from '../OrderAddressForm'
 
 export function CompletedOrder() {
   const { color } = useTheme()
   return (
-    <CheckoutContainer className="container">
+    <CheckoutForm className="container">
       <TitleText size="xs" color="subtitle">
         Complete seu pedido
       </TitleText>
@@ -20,21 +26,23 @@ export function CompletedOrder() {
           icon={<MapPinLine size={22} />}
           $iconColor={color['yellow-dark']}
         />
+
         <FormContainer>
-          <Input placeholder="CEP" type="number" className="cep" />
-          <Input placeholder="Rua" type="text" className="street" />
-          <Input placeholder="Número" type="text" className="number" />
-          <Input
-            placeholder="Complemento"
-            className="complement"
-            optional={'opcional'}
-            type="text"
-          />
-          <Input placeholder="Bairro" type="text" className="neighborhood" />
-          <Input placeholder="Cidade" type="text" className="city" />
-          <Input placeholder="UF" type="" className="uf" />
+          <OrderAddressForm />
         </FormContainer>
       </ContainerOrderForm>
-    </CheckoutContainer>
+
+      <ContainerOrderForm>
+        <IconFormTitle
+          titleForm="Pagamento"
+          text="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
+          icon={<CurrencyDollar size={22} />}
+          $iconColor={color['theme-purple']}
+        />
+        <GridPaymentButton>
+          <ButtonPayment />
+        </GridPaymentButton>
+      </ContainerOrderForm>
+    </CheckoutForm>
   )
 }
