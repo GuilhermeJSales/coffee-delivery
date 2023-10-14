@@ -2,6 +2,21 @@ import { styled } from 'styled-components'
 
 export const CheckoutForm = styled.form`
   margin-top: 2.5rem;
+  display: flex;
+  gap: 2rem;
+`
+
+export const SubTitleForm = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.title};
+  font-size: ${({ theme }) => theme.fontSizes['title-xs']};
+  font-weight: bold;
+  color: ${({ theme }) => theme.color['base-subtitle']};
+  line-height: 130%;
+`
+
+export const DivContainer = styled.div`
+  width: 100%;
+  max-width: 28rem;
 `
 
 export const ContainerOrderForm = styled.div`
@@ -10,10 +25,12 @@ export const ContainerOrderForm = styled.div`
   background: ${({ theme }) => theme.color['base-card']};
   border-radius: 6px;
   margin-bottom: 0.75rem;
+  margin-top: 0.9375rem;
 `
 
 export const ContainerSelectedCoffees = styled(ContainerOrderForm)`
   border-radius: 6px 44px 6px 44px;
+  max-width: 100%;
 `
 
 export const FormContainer = styled.div`
