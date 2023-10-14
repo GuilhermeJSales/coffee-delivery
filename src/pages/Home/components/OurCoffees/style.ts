@@ -18,14 +18,15 @@ export const CardContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 2rem;
   row-gap: 2.5rem;
+  place-items: center;
 
-  @media only screen and (max-width: 70rem) {
+  @media only screen and (max-width: 72.5rem) {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1.25rem;
     row-gap: 2rem;
   }
 
-  @media only screen and (max-width: 54rem) {
+  @media only screen and (max-width: 63rem) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.125rem;
     row-gap: 1.25rem;

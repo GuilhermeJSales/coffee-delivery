@@ -18,6 +18,10 @@ export const ButtonsContainer = styled.div`
   > div {
     height: 100%;
     max-width: 4.5rem;
+
+    @media only screen and (max-width: 35rem) {
+      min-width: 4.5rem;
+    }
   }
 `
 
@@ -26,6 +30,11 @@ export const SelectedInfosContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+
+  @media only screen and (max-width: 35rem) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `
 
 export const SelectedContainer = styled.div`
@@ -37,4 +46,9 @@ export const SelectedContainer = styled.div`
   margin-bottom: 1.5rem;
 
   border-bottom: 1px solid ${({ theme }) => theme.color['base-button']};
+
+  @media only screen and (max-width: 35rem) {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
 `

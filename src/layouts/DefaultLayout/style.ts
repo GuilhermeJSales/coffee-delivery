@@ -10,7 +10,7 @@ export const LayoutContainer = styled.div`
       padding: 0 6.25rem;
     }
 
-    @media (max-width: 48rem) {
+    @media (max-width: 50rem) {
       padding: 0 3.25rem;
     }
 

@@ -7,8 +7,8 @@ import {
   FormContainer,
   GridPaymentButton,
   ContainerSelectedCoffees,
-  DivContainer,
   SubTitleForm,
+  FormDiv,
 } from './style'
 import { useTheme } from 'styled-components'
 import { ButtonPayment } from '../ButtonPayment'
@@ -20,12 +20,12 @@ export function CompletedOrder() {
   const { color } = useTheme()
   return (
     <CheckoutForm className="container">
-      <div>
+      <ContainerOrderForm>
         <TitleText size="xs" color="subtitle">
           Complete seu pedido
         </TitleText>
 
-        <ContainerOrderForm>
+        <FormDiv>
           <IconFormTitle
             titleForm="Endereço de Entrega"
             text="Informe o endereço onde deseja receber seu pedido"
@@ -36,9 +36,9 @@ export function CompletedOrder() {
           <FormContainer>
             <OrderAddressForm />
           </FormContainer>
-        </ContainerOrderForm>
+        </FormDiv>
 
-        <ContainerOrderForm>
+        <FormDiv>
           <IconFormTitle
             titleForm="Pagamento"
             text="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
@@ -48,17 +48,17 @@ export function CompletedOrder() {
           <GridPaymentButton>
             <ButtonPayment />
           </GridPaymentButton>
-        </ContainerOrderForm>
-      </div>
+        </FormDiv>
+      </ContainerOrderForm>
 
-      <DivContainer>
+      <ContainerSelectedCoffees>
         <SubTitleForm>Cafés selecionados</SubTitleForm>
-        <ContainerSelectedCoffees>
+        <FormDiv>
           <SelectedCoffees />
           <SelectedCoffees />
           <ConfirmationSection />
-        </ContainerSelectedCoffees>
-      </DivContainer>
+        </FormDiv>
+      </ContainerSelectedCoffees>
     </CheckoutForm>
   )
 }

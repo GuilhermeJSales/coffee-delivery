@@ -3,7 +3,16 @@ import { styled } from 'styled-components'
 export const CheckoutForm = styled.form`
   margin-top: 2.5rem;
   display: flex;
+  justify-content: space-between;
   gap: 2rem;
+
+  @media only screen and (max-width: 72.5rem) {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1.25rem;
+    place-items: center;
+    row-gap: 2rem;
+  }
 `
 
 export const SubTitleForm = styled.h2`
@@ -14,29 +23,34 @@ export const SubTitleForm = styled.h2`
   line-height: 130%;
 `
 
-export const DivContainer = styled.div`
-  width: 100%;
-  max-width: 28rem;
+export const ContainerOrderForm = styled.div`
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `
 
-export const ContainerOrderForm = styled.div`
-  width: 40rem;
-  padding: 2.5rem;
+export const FormDiv = styled.div`
   background: ${({ theme }) => theme.color['base-card']};
+  width: 100%;
+  padding: 2.5rem;
   border-radius: 6px;
-  margin-bottom: 0.75rem;
-  margin-top: 0.9375rem;
 `
 
 export const ContainerSelectedCoffees = styled(ContainerOrderForm)`
   border-radius: 6px 44px 6px 44px;
-  max-width: 100%;
+  max-width: 28rem;
+  width: 100%;
+
+  @media only screen and (max-width: 72.5rem) {
+    max-width: 40rem;
+  }
 `
 
 export const FormContainer = styled.div`
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 12.5rem 17.25rem 3.75rem;
+  grid-template-columns: minmax(9.4rem, 12.5rem) minmax(12.5rem, 17.25rem) 3.75rem;
   row-gap: 1rem;
   column-gap: 0.75rem;
 
@@ -52,6 +66,17 @@ export const FormContainer = styled.div`
   .complement {
     grid-column: 2/-1;
   }
+
+  @media only screen and (max-width: 39rem) {
+    grid-template-columns: 1fr;
+
+    .cep,
+    .street,
+    .complement {
+      grid-column: 1/-1;
+      max-width: 100%;
+    }
+  }
 `
 
 export const GridPaymentButton = styled.div`
@@ -59,4 +84,8 @@ export const GridPaymentButton = styled.div`
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 0.75rem;
+
+  @media only screen and (max-width: 52rem) {
+    grid-template-columns: 1fr;
+  }
 `

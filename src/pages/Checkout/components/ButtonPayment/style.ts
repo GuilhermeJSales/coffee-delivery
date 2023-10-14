@@ -24,6 +24,10 @@ export const PaymentButton = styled.div`
   &:hover {
     background: ${({ theme }) => theme.color['base-hover']};
   }
+
+  @media only screen and (max-width: 52rem) {
+    justify-content: center;
+  }
 `
 
 export const PaymentIcon = styled.i`

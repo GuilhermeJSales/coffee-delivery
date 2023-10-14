@@ -8,7 +8,7 @@ export const DeleteCoffee = styled.button`
   width: 100%;
   max-width: 5.6875rem;
   height: 100%;
-  padding: 0.5;
+  padding: 0.5rem;
   border-radius: 6px;
 
   display: flex;
@@ -27,5 +27,8 @@ export const DeleteCoffee = styled.button`
 
   &:hover {
     background: ${({ theme }) => theme.color['base-hover']};
+  }
+
+  @media only screen and (max-width: 35rem) {
   }
 `
