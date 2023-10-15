@@ -7,7 +7,7 @@ interface iconWithInfosProps {
   $iconBg: string
 }
 
-export default function iconWithInfos({
+export default function IconWithInfos({
   icon,
   text,
   $iconBg,
