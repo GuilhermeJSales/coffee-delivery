@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
 import coffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
-import { HeaderContainer, HeaderLi, UlHeader } from './style'
+import { HeaderContainer, HeaderLi, QuantitySpan, UlHeader } from './style'
 
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
+import { useCart } from '../../hooks/useCart'
 
 export function Header() {
+  const { quantityCoffeesInCart } = useCart()
   return (
     <HeaderContainer>
       <div className="container">
@@ -20,6 +22,9 @@ export function Header() {
             </HeaderLi>
             <NavLink to="/checkout">
               <HeaderLi $variant="yellow">
+                {quantityCoffeesInCart >= 1 && (
+                  <QuantitySpan>{quantityCoffeesInCart}</QuantitySpan>
+                )}
                 <ShoppingCart weight="fill" size={22} />
               </HeaderLi>
             </NavLink>

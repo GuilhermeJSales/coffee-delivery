@@ -31,6 +31,7 @@ export const HeaderLi = styled.li<HeaderButtonProps>`
   padding: 0 0.5rem;
   border-radius: 6px;
   font-size: ${({ theme }) => theme.fontSizes['text-s']};
+  position: relative;
 
   ${({ $variant, theme }) => css`
     background: ${theme.color[`${$variant}-light`]};
@@ -43,4 +44,22 @@ export const HeaderLi = styled.li<HeaderButtonProps>`
         color: ${theme.color[`theme-${$variant}`]};
       }
     `};
+`
+
+export const QuantitySpan = styled.span`
+  font-size: ${({ theme }) => theme.fontSizes['text-s']};
+  font-weight: bold;
+  color: ${({ theme }) => theme.color.white};
+  background: ${({ theme }) => theme.color['yellow-dark']};
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: calc(-1.25rem / 2);
+  right: calc(-1.25rem / 2);
 `

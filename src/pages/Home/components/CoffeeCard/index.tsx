@@ -10,6 +10,8 @@ import {
   Tags,
 } from './style'
 import { formatMoney } from '../../../../utils/formatMoney'
+import { useCart } from '../../../../hooks/useCart'
+import { useState } from 'react'
 
 export interface Coffee {
   id: number
@@ -25,7 +27,25 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const { addCoffeeInCart } = useCart()
+  const [quantity, setQuantity] = useState(1)
   const formattedPrice = formatMoney(coffee.price)
+
+  const handleIncreaseCoffeeInCart = () => {
+    setQuantity((state) => state + 1)
+  }
+
+  const handleDecreaseCoffeeInCart = () => {
+    setQuantity((state) => state - 1)
+  }
+
+  const handleAddItemToCart = () => {
+    const newCoffeeCart = {
+      ...coffee,
+      quantity,
+    }
+    addCoffeeInCart(newCoffeeCart)
+  }
 
   return (
     <CoffeeCardContainer>
@@ -49,8 +69,12 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
         </div>
 
         <AddCartWrapper>
-          <QuantityInput $size={'medium'} />
-          <button>
+          <QuantityInput
+            increase={handleIncreaseCoffeeInCart}
+            decrease={handleDecreaseCoffeeInCart}
+            quantity={quantity}
+          />
+          <button onClick={handleAddItemToCart}>
             <ShoppingCart size={20} weight="fill" />
           </button>
         </AddCartWrapper>
