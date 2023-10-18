@@ -22,8 +22,10 @@ export function Header() {
             </HeaderLi>
             <NavLink to="/checkout">
               <HeaderLi $variant="yellow">
-                {quantityCoffeesInCart >= 1 && (
+                {quantityCoffeesInCart >= 1 ? (
                   <QuantitySpan>{quantityCoffeesInCart}</QuantitySpan>
+                ) : (
+                  <QuantitySpan>0</QuantitySpan>
                 )}
                 <ShoppingCart weight="fill" size={22} />
               </HeaderLi>

@@ -5,7 +5,11 @@ export const HeaderContainer = styled.header`
   height: 6.5rem;
   display: flex;
   align-items: center;
-
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: ${({ theme }) => theme.color.background};
   > div {
     display: flex;
     align-items: center;

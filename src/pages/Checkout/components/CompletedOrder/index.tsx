@@ -15,9 +15,11 @@ import { ButtonPayment } from '../ButtonPayment'
 import { OrderAddressForm } from '../OrderAddressForm'
 import { SelectedCoffees } from '../SelectedCoffees'
 import { ConfirmationSection } from '../ConfirmationSection'
+import { useCart } from '../../../../hooks/useCart'
 
 export function CompletedOrder() {
   const { color } = useTheme()
+  const { cartItems } = useCart()
   return (
     <CheckoutForm className="container">
       <ContainerOrderForm>
@@ -54,8 +56,9 @@ export function CompletedOrder() {
       <ContainerSelectedCoffees>
         <SubTitleForm>Cafés selecionados</SubTitleForm>
         <FormDiv>
-          <SelectedCoffees />
-          <SelectedCoffees />
+          {cartItems.map((cart) => (
+            <SelectedCoffees key={cart.id} cartItems={cart} />
+          ))}
           <ConfirmationSection />
         </FormDiv>
       </ContainerSelectedCoffees>
