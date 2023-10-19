@@ -27,10 +27,10 @@ export function ConfirmationSection() {
       </div>
 
       <div>
-        <RegularText size="l" weight="bold">
+        <RegularText size="l" $weight="bold">
           Total
         </RegularText>
-        <RegularText size="l" weight="bold">
+        <RegularText size="l" $weight="bold">
           R$ {totalFormatPrice}
         </RegularText>
       </div>

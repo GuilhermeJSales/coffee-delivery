@@ -40,7 +40,7 @@ export function SelectedCoffees({ cartItems }: SelectedCoffeesProps) {
       <div>
         <SelectedInfosContainer>
           <RegularText color="subtitle">{cartItems.name}</RegularText>
-          <RegularText color="text" weight="bold">
+          <RegularText color="text" $weight="bold">
             {`R$ ${formatPrice}`}
           </RegularText>
         </SelectedInfosContainer>
