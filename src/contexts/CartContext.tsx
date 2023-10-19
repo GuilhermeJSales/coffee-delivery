@@ -15,6 +15,7 @@ interface CartContextProps {
     type: 'increase' | 'decrease',
   ) => void
   removeItemToCart: (itemId: number) => void
+  totalPricesCoffees: number
 }
 
 export const CartContext = createContext<CartContextProps | null>(null)
@@ -22,6 +23,10 @@ export const CartContext = createContext<CartContextProps | null>(null)
 export const CartContextProvider = ({ children }: PropsWithChildren) => {
   const [cartItems, setCartItems] = useState<CartItemsProps[]>([])
   const quantityCoffeesInCart = cartItems.length
+
+  const totalPricesCoffees = cartItems.reduce((acc, cart) => {
+    return acc + cart.price * cart.quantity
+  }, 0)
 
   const addCoffeeInCart = (coffee: CartItemsProps) => {
     const itemAlreadyExistsInCart = cartItems.findIndex(
@@ -77,6 +82,7 @@ export const CartContextProvider = ({ children }: PropsWithChildren) => {
         addCoffeeInCart,
         changeItemCartQuantity,
         removeItemToCart,
+        totalPricesCoffees,
       }}
     >
       {children}

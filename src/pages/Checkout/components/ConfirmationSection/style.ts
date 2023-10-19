@@ -26,6 +26,11 @@ export const ConfirmationSectionContainer = styled.div`
     margin-top: 1.5rem;
     transition: 0.4s ease;
 
+    &:disabled {
+      opacity: 0.5;
+      cursor: no-drop;
+    }
+
     &:hover {
       background: ${({ theme }) => theme.color['yellow-dark']};
     }
