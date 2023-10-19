@@ -1,6 +1,7 @@
-import { PropsWithChildren, createContext, useState } from 'react'
+import { PropsWithChildren, createContext } from 'react'
 import { Coffee } from '../pages/Home/components/CoffeeCard'
 import { produce } from 'immer'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export interface CartItemsProps extends Coffee {
   quantity: number
@@ -18,10 +19,16 @@ interface CartContextProps {
   totalPricesCoffees: number
 }
 
+const localStorageKey = 'COFFEE_DELIVERY_ITEMS'
+
 export const CartContext = createContext<CartContextProps | null>(null)
 
 export const CartContextProvider = ({ children }: PropsWithChildren) => {
-  const [cartItems, setCartItems] = useState<CartItemsProps[]>([])
+  const [cartItems, setCartItems] = useLocalStorage<CartItemsProps[]>(
+    localStorageKey,
+    [],
+  )
+
   const quantityCoffeesInCart = cartItems.length
 
   const totalPricesCoffees = cartItems.reduce((acc, cart) => {
