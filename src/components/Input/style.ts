@@ -4,36 +4,47 @@ export const InputContainer = styled.div`
   position: relative;
 `
 
-export const Optional = styled.span`
-  color: ${({ theme }) => theme.color['base-label']};
+export const InputError = styled.span`
+  color: ${({ theme }) => theme.color.errorForm};
   font-size: ${({ theme }) => theme.fontSizes['text-s']};
-  font-style: italic;
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  font-family: ${({ theme }) => theme.fonts.regular};
+`
+
+export const InputDiv = styled.div`
+  height: 2.625rem;
+  border-radius: 4px;
+  border: 1px solid ${({ theme }) => theme.color['base-button']};
+  background: ${({ theme }) => theme.color['base-input']};
+  display: flex;
+  align-items: center;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  &:focus-within {
+    border-color: ${({ theme }) => theme.color['yellow-dark']};
+  }
 `
 
 export const InputItem = styled.input`
-  font-size: ${({ theme }) => theme.fontSizes['text-s']};
-  font-weight: 400;
-  line-height: 130%;
-  background: ${({ theme }) => theme.color['base-input']};
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0 0.75rem;
+  height: 100%;
+  font-size: 0.75rem;
   color: ${({ theme }) => theme.color['base-text']};
-  border: 1px solid ${({ theme }) => theme.color['base-button']};
-  border-radius: 4px;
-  padding: 0.75rem;
-  width: 100%;
 
   &::placeholder {
     color: ${({ theme }) => theme.color['base-label']};
   }
-
-  &:focus {
-    outline: 1px solid ${({ theme }) => theme.color['yellow-dark']};
-    border: 1px solid ${({ theme }) => theme.color['yellow-dark']};
-  }
-
-  &:focus::placeholder {
-    color: transparent;
-  }
+`
+export const Optional = styled.span`
+  color: ${({ theme }) => theme.color['base-label']};
+  font-size: ${({ theme }) => theme.fontSizes['text-s']};
+  font-style: italic;
+  margin-right: 0.75rem;
 `

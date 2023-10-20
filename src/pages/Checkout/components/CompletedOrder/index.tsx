@@ -3,25 +3,27 @@ import { TitleText } from '../../../../styles/typography'
 import { IconFormTitle } from '../IconFormTitle'
 import {
   ContainerOrderForm,
-  CheckoutForm,
   FormContainer,
   GridPaymentButton,
   ContainerSelectedCoffees,
   SubTitleForm,
   FormDiv,
 } from './style'
+import { useFormContext } from 'react-hook-form'
 import { useTheme } from 'styled-components'
-import { ButtonPayment } from '../ButtonPayment'
+import ButtonPayment from '../ButtonPayment'
 import { OrderAddressForm } from '../OrderAddressForm'
 import { SelectedCoffees } from '../SelectedCoffees'
 import { ConfirmationSection } from '../ConfirmationSection'
 import { useCart } from '../../../../hooks/useCart'
-
 export function CompletedOrder() {
   const { color } = useTheme()
   const { cartItems } = useCart()
+
+  const { register } = useFormContext()
+
   return (
-    <CheckoutForm className="container">
+    <>
       <ContainerOrderForm>
         <TitleText size="xs" color="subtitle">
           Complete seu pedido
@@ -48,7 +50,7 @@ export function CompletedOrder() {
             $iconColor={color['theme-purple']}
           />
           <GridPaymentButton>
-            <ButtonPayment />
+            <ButtonPayment {...register('paymentMethod')} />
           </GridPaymentButton>
         </FormDiv>
       </ContainerOrderForm>
@@ -62,6 +64,6 @@ export function CompletedOrder() {
           <ConfirmationSection />
         </FormDiv>
       </ContainerSelectedCoffees>
-    </CheckoutForm>
+    </>
   )
 }
