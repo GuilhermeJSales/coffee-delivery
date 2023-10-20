@@ -3,6 +3,8 @@ import { CompletedOrder } from './components/CompletedOrder'
 import { CheckoutForm } from './style'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
 
 enum PaymentMethods {
   credit = 'credit',
@@ -17,7 +19,7 @@ const confirmOrderFormValidationSchema = zod.object({
   complement: zod.string(),
   neighborhood: zod.string().min(1, 'Informe o bairro'),
   city: zod.string().min(1, 'Informe a cidade'),
-  uf: zod.string().min(1, 'Informe a UF'),
+  uf: zod.string().min(1, 'UF'),
   paymentMethod: zod.nativeEnum(PaymentMethods, {
     errorMap: () => {
       return { message: 'Informe o método de pagamento' }
@@ -25,9 +27,12 @@ const confirmOrderFormValidationSchema = zod.object({
   }),
 })
 
-type ConfirmOrderFormProps = zod.infer<typeof confirmOrderFormValidationSchema>
+export type ConfirmOrderFormProps = zod.infer<
+  typeof confirmOrderFormValidationSchema
+>
 
 export function Checkout() {
+  const { handleCartClear } = useCart()
   const confirmOrderForm = useForm<ConfirmOrderFormProps>({
     resolver: zodResolver(confirmOrderFormValidationSchema),
     defaultValues: {
@@ -43,9 +48,13 @@ export function Checkout() {
   })
 
   const { handleSubmit } = confirmOrderForm
+  const navigate = useNavigate()
 
   function handleCreateNewOrder(data: ConfirmOrderFormProps) {
-    console.log(data)
+    navigate('/success', {
+      state: data,
+    })
+    handleCartClear()
   }
 
   return (

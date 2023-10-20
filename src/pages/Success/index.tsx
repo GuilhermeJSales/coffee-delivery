@@ -1,12 +1,31 @@
+import { useEffect } from 'react'
 import { RegularText, TitleText } from '../../styles/typography'
 import { IconsContainer, MainContainer, SuccessContainer } from './style'
 import illustrationSuccessPage from '../../assets/Illustration.webp'
 import IconWithInfos from '../../components/IconsWithInfos'
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
 import { useTheme } from 'styled-components'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { ConfirmOrderFormProps } from '../Checkout'
+import { paymentMethods } from '../Checkout/components/ButtonPayment'
+
+interface LocationProps {
+  state: ConfirmOrderFormProps
+}
 
 export function Success() {
   const { color } = useTheme()
+
+  const { state } = useLocation() as unknown as LocationProps
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/')
+    }
+  }, [state, navigate])
+
+  if (!state) return <></>
 
   return (
     <MainContainer className="container">
@@ -21,9 +40,13 @@ export function Success() {
             icon={<MapPin weight="fill" />}
             text={
               <RegularText>
-                <strong>Entrega em Rua João Daniel Martinelli, 102</strong>
+                Entrega em:{' '}
+                <strong>
+                  {state.street}, {state.number}
+                  {state.complement && ` - ${state.complement}`}
+                </strong>
                 <br />
-                Farrapos - Porto Alegre, RS
+                {state.neighborhood} - {state.city}, {state.uf}
               </RegularText>
             }
             $iconBg={color['theme-purple']}
@@ -47,7 +70,7 @@ export function Success() {
               <RegularText>
                 Pagamento na entrega
                 <br />
-                <strong>Cartão de crédito</strong>
+                <strong>{paymentMethods[state.paymentMethod].label}</strong>
               </RegularText>
             }
             $iconBg={color['yellow-dark']}

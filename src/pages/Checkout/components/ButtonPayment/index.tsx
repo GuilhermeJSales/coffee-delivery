@@ -10,7 +10,7 @@ interface PaymentMethodsProps {
 
 type ButtonPaymentProps = ComponentProps<'input'>
 
-const paymentMethods: { [key: string]: PaymentMethodsProps } = {
+export const paymentMethods: { [key: string]: PaymentMethodsProps } = {
   credit: {
     icon: <CreditCard size={16} />,
     label: 'Cartão de Crédito',

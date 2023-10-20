@@ -17,6 +17,7 @@ interface CartContextProps {
   ) => void
   removeItemToCart: (itemId: number) => void
   totalPricesCoffees: number
+  handleCartClear: () => void
 }
 
 const localStorageKey = 'COFFEE_DELIVERY_ITEMS'
@@ -81,6 +82,10 @@ export const CartContextProvider = ({ children }: PropsWithChildren) => {
     setCartItems(newCart)
   }
 
+  const handleCartClear = () => {
+    setCartItems([])
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -90,6 +95,7 @@ export const CartContextProvider = ({ children }: PropsWithChildren) => {
         changeItemCartQuantity,
         removeItemToCart,
         totalPricesCoffees,
+        handleCartClear,
       }}
     >
       {children}
