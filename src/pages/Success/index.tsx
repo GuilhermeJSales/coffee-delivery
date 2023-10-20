@@ -8,6 +8,7 @@ import { useTheme } from 'styled-components'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ConfirmOrderFormProps } from '../Checkout'
 import { paymentMethods } from '../Checkout/components/ButtonPayment'
+import { capitalizeFirstLetters } from '../../utils/captlizeFirstLetters'
 
 interface LocationProps {
   state: ConfirmOrderFormProps
@@ -15,7 +16,6 @@ interface LocationProps {
 
 export function Success() {
   const { color } = useTheme()
-
   const { state } = useLocation() as unknown as LocationProps
   const navigate = useNavigate()
 
@@ -27,6 +27,10 @@ export function Success() {
 
   if (!state) return <></>
 
+  const formatStreetValue = capitalizeFirstLetters(state.street)
+  const formatNeighborhoodValue = capitalizeFirstLetters(state.neighborhood)
+  const formatCityValue = capitalizeFirstLetters(state.city)
+  const formatUFValue = capitalizeFirstLetters(state.uf).toUpperCase()
   return (
     <MainContainer className="container">
       <TitleText size="l">Uhu! Pedido confirmado</TitleText>
@@ -40,13 +44,12 @@ export function Success() {
             icon={<MapPin weight="fill" />}
             text={
               <RegularText>
-                Entrega em:{' '}
+                Entrega em{' '}
                 <strong>
-                  {state.street}, {state.number}
-                  {state.complement && ` - ${state.complement}`}
+                  {formatStreetValue}, {state.number}
                 </strong>
                 <br />
-                {state.neighborhood} - {state.city}, {state.uf}
+                {formatNeighborhoodValue} - {formatCityValue}, {formatUFValue}
               </RegularText>
             }
             $iconBg={color['theme-purple']}
