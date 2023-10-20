@@ -44,7 +44,9 @@ export function Checkout() {
 
   const { handleSubmit } = confirmOrderForm
 
-  function handleCreateNewOrder(data: ConfirmOrderFormProps) {}
+  function handleCreateNewOrder(data: ConfirmOrderFormProps) {
+    console.log(data)
+  }
 
   return (
     <FormProvider {...confirmOrderForm}>
